@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#dc2626">
+    <title>Roma Cinema 2026</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #111827;
+            color: #f3f4f6;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        
+        h1 { 
+            color: #dc2626; 
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #9ca3af;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .status { 
+            background: #374151; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 30px;
+            border-left: 4px solid #10b981;
+        }
+        
+        .status.error { 
+            border-left-color: #ef4444; 
+        }
+        
+        .status-line {
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+        
+        .status-value {
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .status.error .status-value {
+            color: #ef4444;
+        }
+        
+        .button { 
+            background: #dc2626; 
+            color: #fff; 
+            padding: 12px 20px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+        
+        .button:hover { 
+            background: #b91c1c; 
+        }
+        
+        .loading { 
+            animation: spin 1s linear infinite; 
+        }
+        
+        @keyframes spin { 
+            to { transform: rotate(360deg); } 
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 30px;
+            background: #1f2937;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th { 
+            background: #374151; 
+            padding: 15px; 
+            text-align: left; 
+            font-weight: 600;
+            color: #f3f4f6;
+            border-bottom: 2px solid #4b5563;
+        }
+        
+        td { 
+            padding: 15px; 
+            border-bottom: 1px solid #374151; 
+        }
+        
+        tr:hover { 
+            background: #374151; 
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .error-message {
+            background: #7f1d1d;
+            color: #fca5a5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.95em;
+        }
+        
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Roma Cinema 2026</h1>
+        <p class="subtitle">Database automatico con aggiornamento giornaliero</p>
+        
+        <div class="status" id="status">
+            <div class="status-line">
+                <strong>📊 Status:</strong> 
+                <span id="status-text" class="status-value loading">Caricamento...</span>
+            </div>
+            <div class="status-line">
+                <strong>🕐 Ultimo aggiornamento:</strong> 
+                <span id="lastUpdate" class="status-value">-</span>
+            </div>
+            <div class="status-line">
+                <strong>📍 Arene disponibili:</strong> 
+                <span id="arenaCount" class="status-value">-</span>
+            </div>
+            <button class="button" onclick="refreshData()">🔄 Aggiorna</button>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Arena</th>
+                    <th>Locazione</th>
+                    <th>Costo</th>
+                    <th>Affidabilità</th>
+                </tr>
+            </thead>
+            <tbody id="arenasList">
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 40px;">
+                        <span class="loading">⏳ Caricamento dati...</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div id="errorContainer"></div>
+        
+        <div class="footer">
+            <p>
+                Repository: <a href="https://github.com/123CarloniK/roma-cinema-2026" target="_blank">GitHub</a> | 
+                JSON: <a href="https://raw.githubusercontent.com/123CarloniK/roma-cinema-2026/main/data/cinema-schedule.json" target="_blank">Raw Data</a>
+            </p>
+            <p style="margin-top: 10px;">
+                Aggiornamento automatico ogni giorno alle 02:00 AM
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // URL del JSON su GitHub
+        const JSON_URL = 'https://raw.githubusercontent.com/123CarloniK/roma-cinema-2026/main/data/cinema-schedule.json';
+
+        /**
+         * Carica dati dal JSON
+         */
+        async function loadData() {
+            try {
+                console.log('📥 Caricamento dati da GitHub...');
+                
+                const response = await fetch(JSON_URL, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                console.log(`HTTP Response: ${response.status}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('✅ Dati caricati');
+                
+                displayData(data);
+            } catch (error) {
+                console.error('❌ Errore:', error);
+                showError(error.message);
+            }
+        }
+
+        /**
+         * Visualizza dati nella tabella
+         */
+        function displayData(data) {
+            const arenas = data.data || data;
+            
+            // Status
+            document.getElementById('status-text').innerText = '✅ OK';
+            document.getElementById('status-text').classList.remove('loading');
+            document.getElementById('lastUpdate').innerText = 
+                data.metadata?.lastUpdated 
+                    ? new Date(data.metadata.lastUpdated).toLocaleString('it-IT')
+                    : 'N/A';
+            document.getElementById('arenaCount').innerText = arenas.length;
+            
+            // Tabella
+            const tbody = document.getElementById('arenasList');
+            tbody.innerHTML = arenas.map(arena => `
+                <tr>
+                    <td><strong>${arena.name || 'N/A'}</strong></td>
+                    <td>${(arena.locations && arena.locations[0]) || 'N/A'}</td>
+                    <td>${arena.cost || 'N/A'}</td>
+                    <td>${arena.affidability_score || 'N/A'}%</td>
+                </tr>
+            `).join('');
+            
+            // Rimuovi errore se c'era
+            document.getElementById('errorContainer').innerHTML = '';
+            document.getElementById('status').classList.remove('error');
+        }
+
+        /**
+         * Mostra errore
+         */
+        function showError(message) {
+            const errorHTML = `
+                <div class="error-message">
+                    <strong>❌ Errore nel caricamento:</strong><br>
+                    ${message}
+                    <br><br>
+                    <em>Possibili cause:</em><br>
+                    - Connessione internet instabile<br>
+                    - GitHub non raggiungibile<br>
+                    - File non ancora uploadato su GitHub
+                </div>
+            `;
+            document.getElementById('errorContainer').innerHTML = errorHTML;
+            document.getElementById('status-text').innerText = '❌ ERRORE';
+            document.getElementById('status').classList.add('error');
+            
+            const tbody = document.getElementById('arenasList');
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 40px; color: #f87171;">
+                        ❌ Impossibile caricare i dati
+                    </td>
+                </tr>
+            `;
+        }
+
+        /**
+         * Aggiorna dati
+         */
+        function refreshData() {
+            console.log('🔄 Aggiornamento...');
+            document.getElementById('status-text').innerText = 'Aggiornamento...';
+            document.getElementById('status-text').classList.add('loading');
+            loadData();
+        }
+
+        // Carica dati al caricamento della pagina
+        window.addEventListener('load', loadData);
+    </script>
+</body>
+</html>
