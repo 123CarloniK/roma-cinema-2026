@@ -1,18 +1,92 @@
 [
   {
     "id": 1,
-    "name": "Il Cinema in Piazza",
+    "name": "Il Cinema in Piazza - Fondazione Piccolo America",
     "locations": [
-      "Piazza San Cosimato"
+      "Piazza San Cosimato (Trastevere)"
     ],
     "cost": "GRATUITO",
     "website": "piccoloamerica.org",
     "email": "info@piccoloamerica.org",
     "phone": "+39 06 5811 3622",
+    "organizer": "Fondazione Piccolo America",
+    "startDate": "2026-05-28",
+    "endDate": "2026-07-12",
     "affidability_score": 98,
     "verified_date": "2026-07-07",
     "sources": [
       "piccoloamerica.org"
-    ]
+    ],
+    "filmSchedule": {
+      "2026-07-08": [
+        {
+          "time": "21:15",
+          "title": "La dolce vita",
+          "director": "Federico Fellini",
+          "genre": "Dramma",
+          "year": 1960
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "name": "Teatro Ettore Scola - Casa del Cinema",
+    "locations": [
+      "Villa Borghese (Parco)"
+    ],
+    "cost": "GRATUITO",
+    "website": "casadelcinema.it",
+    "email": "casadelcinema@romacinemafest.org",
+    "phone": "04974363",
+    "organizer": "Fondazione Cinema per Roma",
+    "startDate": "2026-06-01",
+    "endDate": "2026-09-06",
+    "affidability_score": 97,
+    "verified_date": "2026-07-07",
+    "sources": [
+      "casadelcinema.it"
+    ],
+    "filmSchedule": {
+      "2026-07-08": [
+        {
+          "time": "21:30",
+          "title": "Un'ottima annata",
+          "director": "Ridley Scott",
+          "genre": "Commedia",
+          "year": 1992
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Roma Cinema Arena - Parco Acquedotti",
+    "locations": [
+      "Parco degli Acquedotti"
+    ],
+    "cost": "GRATUITO",
+    "website": "romacinemaafest.it",
+    "email": "info@romacinemaafest.it",
+    "phone": "+39 06 7005 4830",
+    "organizer": "Fondazione Cinema per Roma",
+    "startDate": "2026-07-01",
+    "endDate": "2026-07-22",
+    "affidability_score": 95,
+    "verified_date": "2026-07-07",
+    "sources": [
+      "romacinemaafest.it"
+    ],
+    "filmSchedule": {
+      "2026-07-08": [
+        {
+          "time": "21:00",
+          "title": "Cittadino Kane",
+          "director": "Orson Welles",
+          "genre": "Dramma",
+          "year": 1941
+        }
+      ]
+    }
   }
 ]
