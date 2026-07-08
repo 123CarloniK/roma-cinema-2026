@@ -3,306 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#dc2626">
-    <title>Roma Cinema 2026</title>
+    <title>🎬 Roma Cinema 2026 - Database Automatico</title>
     <style>
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            background: #111827;
-            color: #f3f4f6;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
-            line-height: 1.6;
         }
         
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        h1 { 
-            color: #dc2626; 
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header-title {
+            font-size: 32px;
+            color: #333;
             margin-bottom: 10px;
-            font-size: 2.5em;
         }
         
-        .subtitle {
-            color: #9ca3af;
-            margin-bottom: 30px;
-            font-size: 1.1em;
+        .header-subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
         }
         
-        .status { 
-            background: #374151; 
-            padding: 20px; 
-            border-radius: 8px; 
-            margin-bottom: 30px;
-            border-left: 4px solid #10b981;
+        .status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
-        .status.error { 
-            border-left-color: #ef4444; 
+        .status-item {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
         }
         
-        .status-line {
-            margin: 8px 0;
-            font-size: 1.1em;
+        .status-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
         
         .status-value {
-            color: #10b981;
+            font-size: 24px;
             font-weight: bold;
+            color: #333;
         }
         
-        .status.error .status-value {
-            color: #ef4444;
-        }
-        
-        .button { 
-            background: #dc2626; 
-            color: #fff; 
-            padding: 12px 20px; 
-            border: none; 
-            border-radius: 8px; 
+        .btn-refresh {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: 600;
-            margin-top: 15px;
-            font-size: 1em;
-            transition: background 0.2s;
+            font-size: 14px;
+            transition: background 0.3s;
         }
         
-        .button:hover { 
-            background: #b91c1c; 
+        .btn-refresh:hover {
+            background: #764ba2;
         }
         
-        .loading { 
-            animation: spin 1s linear infinite; 
-        }
-        
-        @keyframes spin { 
-            to { transform: rotate(360deg); } 
-        }
-        
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
+        .arenas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
             margin-top: 30px;
-            background: #1f2937;
-            border-radius: 8px;
-            overflow: hidden;
         }
         
-        th { 
-            background: #374151; 
-            padding: 15px; 
-            text-align: left; 
-            font-weight: 600;
-            color: #f3f4f6;
-            border-bottom: 2px solid #4b5563;
+        .arena-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        td { 
-            padding: 15px; 
-            border-bottom: 1px solid #374151; 
+        .arena-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
-        tr:hover { 
-            background: #374151; 
+        .arena-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
         }
         
-        tr:last-child td {
+        .arena-location {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .arena-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .info-item {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        
+        .info-label {
+            color: #999;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        .info-value {
+            color: #333;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+        
+        .arena-films {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .films-title {
+            font-size: 13px;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .film-item {
+            font-size: 13px;
+            color: #555;
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .film-item:last-child {
             border-bottom: none;
         }
         
-        .error-message {
-            background: #7f1d1d;
-            color: #fca5a5;
-            padding: 15px;
+        .film-title {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .film-director {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .error {
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            padding: 20px;
             border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid #ef4444;
+            margin: 20px 0;
         }
         
-        .footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #374151;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.95em;
+        .cost-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
         }
         
-        a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
+        .cost-badge.pagamento {
+            background: #fff3e0;
+            color: #e65100;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎬 Roma Cinema 2026</h1>
-        <p class="subtitle">Database automatico con aggiornamento giornaliero</p>
-        
-        <div class="status" id="status">
-            <div class="status-line">
-                <strong>📊 Status:</strong> 
-                <span id="status-text" class="status-value loading">Caricamento...</span>
+        <header>
+            <div class="header-title">🎬 Roma Cinema 2026</div>
+            <div class="header-subtitle">Database automatico con aggiornamento giornaliero</div>
+            
+            <div class="status-bar">
+                <div class="status-item">
+                    <div class="status-label">📊 Status</div>
+                    <div class="status-value" id="status">⏳ Caricamento...</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">🕐 Ultimo aggiornamento</div>
+                    <div class="status-value" id="lastUpdate">-</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">📍 Arene disponibili</div>
+                    <div class="status-value" id="arenaCount">-</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">🎬 Film totali</div>
+                    <div class="status-value" id="filmCount">-</div>
+                </div>
             </div>
-            <div class="status-line">
-                <strong>🕐 Ultimo aggiornamento:</strong> 
-                <span id="lastUpdate" class="status-value">-</span>
-            </div>
-            <div class="status-line">
-                <strong>📍 Arene disponibili:</strong> 
-                <span id="arenaCount" class="status-value">-</span>
-            </div>
-            <button class="button" onclick="refreshData()">🔄 Aggiorna</button>
-        </div>
+            
+            <button class="btn-refresh" onclick="location.reload()">🔄 Aggiorna</button>
+        </header>
         
-        <table>
-            <thead>
-                <tr>
-                    <th>Arena</th>
-                    <th>Locazione</th>
-                    <th>Costo</th>
-                    <th>Affidabilità</th>
-                </tr>
-            </thead>
-            <tbody id="arenasList">
-                <tr>
-                    <td colspan="4" style="text-align: center; padding: 40px;">
-                        <span class="loading">⏳ Caricamento dati...</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <div id="errorContainer"></div>
-        
-        <div class="footer">
-            <p>
-                Repository: <a href="https://github.com/123CarloniK/roma-cinema-2026" target="_blank">GitHub</a> | 
-                JSON: <a href="https://raw.githubusercontent.com/123CarloniK/roma-cinema-2026/main/data/cinema-schedule.json" target="_blank">Raw Data</a>
-            </p>
-            <p style="margin-top: 10px;">
-                Aggiornamento automatico ogni giorno alle 02:00 AM
-            </p>
-        </div>
+        <div id="content"></div>
     </div>
 
     <script>
-        // URL del JSON su GitHub
-        const JSON_URL = 'https://raw.githubusercontent.com/123CarloniK/roma-cinema-2026/main/data/cinema-schedule.json';
-
-        /**
-         * Carica dati dal JSON
-         */
         async function loadData() {
             try {
-                console.log('📥 Caricamento dati da GitHub...');
-                
-                const response = await fetch(JSON_URL, {
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                console.log(`HTTP Response: ${response.status}`);
+                const response = await fetch('https://raw.githubusercontent.com/123CarloniK/roma-cinema-2026/main/data/cinema-schedule.json');
                 
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
                 
                 const data = await response.json();
-                console.log('✅ Dati caricati');
                 
-                displayData(data);
+                const metadata = data.metadata;
+                const arenas = data.arenas;
+                
+                if (!Array.isArray(arenas)) {
+                    throw new Error('Arenas non è un array');
+                }
+                
+                displayData(metadata, arenas);
+                
             } catch (error) {
-                console.error('❌ Errore:', error);
-                showError(error.message);
+                console.error('Errore:', error);
+                document.getElementById('content').innerHTML = `
+                    <div class="error">
+                        ❌ Errore nel caricamento: ${error.message}<br>
+                        Possibili cause:<br>
+                        - Connessione internet instabile<br>
+                        - GitHub non raggiungibile<br>
+                        - File non correttamente uploadato su GitHub
+                    </div>
+                `;
+                document.getElementById('status').textContent = '❌ ERRORE';
             }
         }
-
-        /**
-         * Visualizza dati nella tabella
-         */
-        function displayData(data) {
-            const arenas = data.data || data;
+        
+        function displayData(metadata, arenas) {
+            document.getElementById('status').textContent = '✅ OK';
             
-            // Status
-            document.getElementById('status-text').innerText = '✅ OK';
-            document.getElementById('status-text').classList.remove('loading');
-            document.getElementById('lastUpdate').innerText = 
-                data.metadata?.lastUpdated 
-                    ? new Date(data.metadata.lastUpdated).toLocaleString('it-IT')
-                    : 'N/A';
-            document.getElementById('arenaCount').innerText = arenas.length;
+            const lastUpdate = new Date(metadata.lastUpdated);
+            document.getElementById('lastUpdate').textContent = 
+                lastUpdate.toLocaleDateString('it-IT') + ', ' + 
+                lastUpdate.toLocaleTimeString('it-IT');
             
-            // Tabella
-            const tbody = document.getElementById('arenasList');
-            tbody.innerHTML = arenas.map(arena => `
-                <tr>
-                    <td><strong>${arena.name || 'N/A'}</strong></td>
-                    <td>${(arena.locations && arena.locations[0]) || 'N/A'}</td>
-                    <td>${arena.cost || 'N/A'}</td>
-                    <td>${arena.affidability_score || 'N/A'}%</td>
-                </tr>
-            `).join('');
+            document.getElementById('arenaCount').textContent = metadata.totalArenas;
+            document.getElementById('filmCount').textContent = metadata.totalFilms;
             
-            // Rimuovi errore se c'era
-            document.getElementById('errorContainer').innerHTML = '';
-            document.getElementById('status').classList.remove('error');
+            let html = '<div class="arenas-grid">';
+            
+            arenas.forEach(arena => {
+                const costClass = arena.cost === 'GRATUITO' ? '' : 'pagamento';
+                const filmCount = arena.films ? arena.films.length : 0;
+                
+                let filmsHtml = '';
+                if (arena.films && arena.films.length > 0) {
+                    filmsHtml = arena.films.slice(0, 3).map(film => `
+                        <div class="film-item">
+                            <div class="film-title">🎞️ ${film.title}</div>
+                            <div class="film-director">${film.director || ''} (${film.year || ''})</div>
+                        </div>
+                    `).join('');
+                    
+                    if (filmCount > 3) {
+                        filmsHtml += `<div class="film-item" style="color: #667eea; font-weight: bold;">+ ${filmCount - 3} altri film</div>`;
+                    }
+                }
+                
+                html += `
+                    <div class="arena-card">
+                        <div class="arena-name">${arena.name}</div>
+                        <div class="arena-location">📍 ${arena.location}</div>
+                        
+                        <div class="arena-info">
+                            <div class="info-item">
+                                <div class="info-label">Capienza</div>
+                                <div class="info-value">${arena.capacity || '-'} posti</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Costo</div>
+                                <div class="info-value">
+                                    <span class="cost-badge ${costClass}">${arena.cost}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        ${arena.films && arena.films.length > 0 ? `
+                            <div class="arena-films">
+                                <div class="films-title">🎬 Film programmati (${filmCount})</div>
+                                ${filmsHtml}
+                            </div>
+                        ` : ''}
+                        
+                        ${arena.contact && arena.contact.website ? `
+                            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
+                                <a href="${arena.contact.website}" target="_blank" style="color: #667eea; text-decoration: none; font-size: 13px;">
+                                    🌐 Visita sito →
+                                </a>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            document.getElementById('content').innerHTML = html;
         }
-
-        /**
-         * Mostra errore
-         */
-        function showError(message) {
-            const errorHTML = `
-                <div class="error-message">
-                    <strong>❌ Errore nel caricamento:</strong><br>
-                    ${message}
-                    <br><br>
-                    <em>Possibili cause:</em><br>
-                    - Connessione internet instabile<br>
-                    - GitHub non raggiungibile<br>
-                    - File non ancora uploadato su GitHub
-                </div>
-            `;
-            document.getElementById('errorContainer').innerHTML = errorHTML;
-            document.getElementById('status-text').innerText = '❌ ERRORE';
-            document.getElementById('status').classList.add('error');
-            
-            const tbody = document.getElementById('arenasList');
-            tbody.innerHTML = `
-                <tr>
-                    <td colspan="4" style="text-align: center; padding: 40px; color: #f87171;">
-                        ❌ Impossibile caricare i dati
-                    </td>
-                </tr>
-            `;
-        }
-
-        /**
-         * Aggiorna dati
-         */
-        function refreshData() {
-            console.log('🔄 Aggiornamento...');
-            document.getElementById('status-text').innerText = 'Aggiornamento...';
-            document.getElementById('status-text').classList.add('loading');
-            loadData();
-        }
-
-        // Carica dati al caricamento della pagina
+        
         window.addEventListener('load', loadData);
     </script>
 </body>
