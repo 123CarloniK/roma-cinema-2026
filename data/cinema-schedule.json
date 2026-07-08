@@ -27,46 +27,11 @@
       "cost": "GRATUITO",
       "capacity": 150,
       "films": [
-        {
-          "title": "Les Quatre Cents Coups",
-          "director": "François Truffaut",
-          "year": 1959,
-          "country": "France",
-          "date": "2026-05-28",
-          "time": "21:15"
-        },
-        {
-          "title": "Il Sorpasso",
-          "director": "Dino Risi",
-          "year": 1962,
-          "country": "Italy",
-          "date": "2026-06-04",
-          "time": "21:15"
-        },
-        {
-          "title": "Persepolis",
-          "director": "Marjane Satrapi",
-          "year": 2007,
-          "country": "France",
-          "date": "2026-06-11",
-          "time": "21:15"
-        },
-        {
-          "title": "Les Demoiselles de Rochefort",
-          "director": "Jacques Demy",
-          "year": 1967,
-          "country": "France",
-          "date": "2026-07-02",
-          "time": "21:15"
-        },
-        {
-          "title": "Umberto D.",
-          "director": "Vittorio De Sica",
-          "year": 1952,
-          "country": "Italy",
-          "date": "2026-07-09",
-          "time": "21:15"
-        }
+        {"title": "Les Quatre Cents Coups", "director": "François Truffaut", "year": 1959, "date": "2026-05-28", "time": "21:15"},
+        {"title": "Il Sorpasso", "director": "Dino Risi", "year": 1962, "date": "2026-06-04", "time": "21:15"},
+        {"title": "Persepolis", "director": "Marjane Satrapi", "year": 2007, "date": "2026-06-11", "time": "21:15"},
+        {"title": "Les Demoiselles de Rochefort", "director": "Jacques Demy", "year": 1967, "date": "2026-07-02", "time": "21:15"},
+        {"title": "Umberto D.", "director": "Vittorio De Sica", "year": 1952, "date": "2026-07-09", "time": "21:15"}
       ]
     },
     {
@@ -75,60 +40,16 @@
       "location": "Largo Marcello Mastroianni, Villa Borghese",
       "coords": [41.9105, 12.4897],
       "zone": "Villa Borghese",
-      "contact": {
-        "phone": "+39 06 423601",
-        "email": "casadelcinema@romacinemafest.org",
-        "website": "https://www.casadelcinema.it"
-      },
-      "programma": {
-        "startDate": "2026-06-08",
-        "endDate": "2026-09-06",
-        "daysOpen": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        "filmTime": "21:30"
-      },
+      "contact": {"phone": "+39 06 423601", "email": "casadelcinema@romacinemafest.org", "website": "https://www.casadelcinema.it"},
+      "programma": {"startDate": "2026-06-08", "endDate": "2026-09-06", "daysOpen": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "filmTime": "21:30"},
       "cost": "GRATUITO",
       "capacity": 200,
       "films": [
-        {
-          "title": "Omaggio a Ettore Scola",
-          "director": "Ettore Scola",
-          "year": 1979,
-          "country": "Italy",
-          "date": "2026-06-08",
-          "time": "21:30"
-        },
-        {
-          "title": "Marilyn 100",
-          "director": "Various",
-          "year": 1962,
-          "country": "USA",
-          "date": "2026-06-15",
-          "time": "21:30"
-        },
-        {
-          "title": "Mel Brooks 100",
-          "director": "Mel Brooks",
-          "year": 1987,
-          "country": "USA",
-          "date": "2026-06-22",
-          "time": "21:30"
-        },
-        {
-          "title": "Via Terra",
-          "director": "Paolo Sorrentino",
-          "year": 2024,
-          "country": "Italy",
-          "date": "2026-07-06",
-          "time": "21:30"
-        },
-        {
-          "title": "Nouvelle Vague sul Tevere",
-          "director": "François Truffaut",
-          "year": 1968,
-          "country": "France",
-          "date": "2026-07-13",
-          "time": "21:30"
-        }
+        {"title": "Omaggio a Ettore Scola", "director": "Ettore Scola", "year": 1979, "date": "2026-06-08", "time": "21:30"},
+        {"title": "Marilyn 100", "director": "Various", "year": 1962, "date": "2026-06-15", "time": "21:30"},
+        {"title": "Mel Brooks 100", "director": "Mel Brooks", "year": 1987, "date": "2026-06-22", "time": "21:30"},
+        {"title": "Via Terra", "director": "Paolo Sorrentino", "year": 2024, "date": "2026-07-06", "time": "21:30"},
+        {"title": "Nouvelle Vague sul Tevere", "director": "François Truffaut", "year": 1968, "date": "2026-07-13", "time": "21:30"}
       ]
     },
     {
@@ -137,140 +58,26 @@
       "location": "Via Lemonia, Parco degli Acquedotti",
       "coords": [41.8492, 12.5620],
       "zone": "Appio Claudio",
-      "contact": {
-        "phone": "+39 06 40401900",
-        "email": "info@romacinemafest.org",
-        "website": "https://www.romacinemafest.it/it/roma-cinema-arena-ed-2026/"
-      },
-      "programma": {
-        "startDate": "2026-07-01",
-        "endDate": "2026-07-22",
-        "daysOpen": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        "filmTime": "21:15"
-      },
+      "contact": {"phone": "+39 06 40401900", "email": "info@romacinemafest.org", "website": "https://www.romacinemafest.it/it/roma-cinema-arena-ed-2026/"},
+      "programma": {"startDate": "2026-07-01", "endDate": "2026-07-22", "daysOpen": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "filmTime": "21:15"},
       "cost": "GRATUITO",
       "capacity": 1000,
       "films": [
-        {
-          "title": "Dramma gelosia",
-          "director": "Ettore Scola",
-          "year": 1970,
-          "country": "Italy",
-          "date": "2026-07-01",
-          "time": "21:15"
-        },
-        {
-          "title": "Cast Away",
-          "director": "Robert Zemeckis",
-          "year": 2000,
-          "country": "USA",
-          "date": "2026-07-02",
-          "time": "21:15"
-        },
-        {
-          "title": "Travolti da insolito destino",
-          "director": "Lina Wertmüller",
-          "year": 1974,
-          "country": "Italy",
-          "date": "2026-07-03",
-          "time": "21:15"
-        },
-        {
-          "title": "Gilda",
-          "director": "Charles Vidor",
-          "year": 1946,
-          "country": "USA",
-          "date": "2026-07-04",
-          "time": "21:15"
-        },
-        {
-          "title": "Moulin Rouge!",
-          "director": "Baz Luhrmann",
-          "year": 2001,
-          "country": "USA",
-          "date": "2026-07-07",
-          "time": "21:15"
-        },
-        {
-          "title": "Stand by Me",
-          "director": "Rob Reiner",
-          "year": 1986,
-          "country": "USA",
-          "date": "2026-07-08",
-          "time": "21:15"
-        },
-        {
-          "title": "I cento passi",
-          "director": "Marco Tullio Giordana",
-          "year": 2000,
-          "country": "Italy",
-          "date": "2026-07-09",
-          "time": "21:15"
-        },
-        {
-          "title": "Ricomincio da tre",
-          "director": "Massimo Troisi",
-          "year": 1981,
-          "country": "Italy",
-          "date": "2026-07-12",
-          "time": "21:15"
-        },
-        {
-          "title": "Il tempo che ci vuole",
-          "director": "Francesca Comencini",
-          "year": 2014,
-          "country": "Italy",
-          "date": "2026-07-14",
-          "time": "21:15"
-        },
-        {
-          "title": "Mr. Nobody Against Putin",
-          "director": "Oscar Winner 2026",
-          "year": 2025,
-          "country": "International",
-          "date": "2026-07-15",
-          "time": "21:15"
-        },
-        {
-          "title": "Il Gattopardo",
-          "director": "Luchino Visconti",
-          "year": 1963,
-          "country": "Italy",
-          "date": "2026-07-16",
-          "time": "21:15"
-        },
-        {
-          "title": "La famiglia",
-          "director": "Ettore Scola",
-          "year": 1987,
-          "country": "Italy",
-          "date": "2026-07-18",
-          "time": "21:15"
-        },
-        {
-          "title": "Quando la moglie è in vacanza",
-          "director": "Luigi Comencini",
-          "year": 1957,
-          "country": "Italy",
-          "date": "2026-07-19",
-          "time": "21:15"
-        },
-        {
-          "title": "Gli uomini preferiscono le bionde",
-          "director": "Howard Hawks",
-          "year": 1953,
-          "country": "USA",
-          "date": "2026-07-21",
-          "time": "21:15"
-        },
-        {
-          "title": "Romanzo giovane povero",
-          "director": "Carlo Virzì",
-          "year": 1995,
-          "country": "Italy",
-          "date": "2026-07-22",
-          "time": "21:15"
-        }
+        {"title": "Dramma gelosia", "director": "Ettore Scola", "year": 1970, "date": "2026-07-01", "time": "21:15"},
+        {"title": "Cast Away", "director": "Robert Zemeckis", "year": 2000, "date": "2026-07-02", "time": "21:15"},
+        {"title": "Travolti da insolito destino", "director": "Lina Wertmüller", "year": 1974, "date": "2026-07-03", "time": "21:15"},
+        {"title": "Gilda", "director": "Charles Vidor", "year": 1946, "date": "2026-07-04", "time": "21:15"},
+        {"title": "Moulin Rouge!", "director": "Baz Luhrmann", "year": 2001, "date": "2026-07-07", "time": "21:15"},
+        {"title": "Stand by Me", "director": "Rob Reiner", "year": 1986, "date": "2026-07-08", "time": "21:15"},
+        {"title": "I cento passi", "director": "Marco Tullio Giordana", "year": 2000, "date": "2026-07-09", "time": "21:15"},
+        {"title": "Ricomincio da tre", "director": "Massimo Troisi", "year": 1981, "date": "2026-07-12", "time": "21:15"},
+        {"title": "Il tempo che ci vuole", "director": "Francesca Comencini", "year": 2014, "date": "2026-07-14", "time": "21:15"},
+        {"title": "Mr. Nobody Against Putin", "director": "Oscar Winner 2026", "year": 2025, "date": "2026-07-15", "time": "21:15"},
+        {"title": "Il Gattopardo", "director": "Luchino Visconti", "year": 1963, "date": "2026-07-16", "time": "21:15"},
+        {"title": "La famiglia", "director": "Ettore Scola", "year": 1987, "date": "2026-07-18", "time": "21:15"},
+        {"title": "Quando la moglie è in vacanza", "director": "Luigi Comencini", "year": 1957, "date": "2026-07-19", "time": "21:15"},
+        {"title": "Gli uomini preferiscono le bionde", "director": "Howard Hawks", "year": 1953, "date": "2026-07-21", "time": "21:15"},
+        {"title": "Romanzo giovane povero", "director": "Carlo Virzì", "year": 1995, "date": "2026-07-22", "time": "21:15"}
       ]
     },
     {
@@ -279,76 +86,18 @@
       "location": "Piazza Vittorio Emanuele II, Esquilino",
       "coords": [41.8956, 12.5045],
       "zone": "Esquilino",
-      "contact": {
-        "phone": "Info sito",
-        "email": "info@cinevillageroma.it",
-        "website": "https://cinevillageroma.it/notti-di-cinema-a-piazza-vittorio/"
-      },
-      "programma": {
-        "startDate": "2026-06-18",
-        "endDate": "2026-09-20",
-        "daysOpen": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        "filmTime": "21:30"
-      },
+      "contact": {"phone": "Info sito", "email": "info@cinevillageroma.it", "website": "https://cinevillageroma.it/notti-di-cinema-a-piazza-vittorio/"},
+      "programma": {"startDate": "2026-06-18", "endDate": "2026-09-20", "daysOpen": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "filmTime": "21:30"},
       "cost": "€3,50-6,00",
       "capacity": 400,
       "films": [
-        {
-          "title": "Una battaglia dopo l'altra",
-          "director": "Paul Thomas Anderson",
-          "year": 2025,
-          "country": "USA",
-          "date": "2026-06-18",
-          "time": "21:30"
-        },
-        {
-          "title": "Cinque secondi",
-          "director": "Paolo Virzì",
-          "year": 2024,
-          "country": "Italy",
-          "date": "2026-06-25",
-          "time": "21:30"
-        },
-        {
-          "title": "Breve storia d'amore",
-          "director": "Various",
-          "year": 2024,
-          "country": "Italy",
-          "date": "2026-07-02",
-          "time": "21:30"
-        },
-        {
-          "title": "2 cuori e 2 capanne",
-          "director": "Various",
-          "year": 2024,
-          "country": "Italy",
-          "date": "2026-07-09",
-          "time": "21:30"
-        },
-        {
-          "title": "Marty Supreme",
-          "director": "Joshua O'Brien",
-          "year": 2024,
-          "country": "USA",
-          "date": "2026-07-16",
-          "time": "21:30"
-        },
-        {
-          "title": "Le città di pianura",
-          "director": "Various",
-          "year": 2024,
-          "country": "Italy",
-          "date": "2026-07-23",
-          "time": "21:30"
-        },
-        {
-          "title": "Blue",
-          "director": "Park Chan-wook",
-          "year": 2024,
-          "country": "Korea",
-          "date": "2026-07-30",
-          "time": "21:30"
-        }
+        {"title": "Una battaglia dopo l'altra", "director": "Paul Thomas Anderson", "year": 2025, "date": "2026-06-18", "time": "21:30"},
+        {"title": "Cinque secondi", "director": "Paolo Virzì", "year": 2024, "date": "2026-06-25", "time": "21:30"},
+        {"title": "Breve storia d'amore", "director": "Various", "year": 2024, "date": "2026-07-02", "time": "21:30"},
+        {"title": "2 cuori e 2 capanne", "director": "Various", "year": 2024, "date": "2026-07-09", "time": "21:30"},
+        {"title": "Marty Supreme", "director": "Joshua O'Brien", "year": 2024, "date": "2026-07-16", "time": "21:30"},
+        {"title": "Le città di pianura", "director": "Various", "year": 2024, "date": "2026-07-23", "time": "21:30"},
+        {"title": "Blue", "director": "Park Chan-wook", "year": 2024, "date": "2026-07-30", "time": "21:30"}
       ]
     },
     {
@@ -380,22 +129,8 @@
       "cost": "GRATUITO",
       "capacity": 150,
       "films": [
-        {
-          "title": "The Blues Brothers",
-          "director": "John Landis",
-          "year": 1980,
-          "country": "USA",
-          "date": "2026-06-28",
-          "time": "21:00"
-        },
-        {
-          "title": "Dr. Stranamore",
-          "director": "Stanley Kubrick",
-          "year": 1964,
-          "country": "USA",
-          "date": "2026-07-04",
-          "time": "21:00"
-        }
+        {"title": "The Blues Brothers", "director": "John Landis", "year": 1980, "date": "2026-06-28", "time": "21:00"},
+        {"title": "Dr. Stranamore", "director": "Stanley Kubrick", "year": 1964, "date": "2026-07-04", "time": "21:00"}
       ]
     },
     {
@@ -427,22 +162,8 @@
       "cost": "GRATUITO",
       "capacity": 180,
       "films": [
-        {
-          "title": "Ciao Marjane",
-          "director": "Marjane Satrapi",
-          "year": 2024,
-          "country": "France",
-          "date": "2026-07-17",
-          "time": "21:00"
-        },
-        {
-          "title": "Le vie dell'acqua",
-          "director": "Luca Guadagnino",
-          "year": 2024,
-          "country": "Italy",
-          "date": "2026-07-20",
-          "time": "21:00"
-        }
+        {"title": "Ciao Marjane", "director": "Marjane Satrapi", "year": 2024, "date": "2026-07-17", "time": "21:00"},
+        {"title": "Le vie dell'acqua", "director": "Luca Guadagnino", "year": 2024, "date": "2026-07-20", "time": "21:00"}
       ]
     },
     {
@@ -454,30 +175,9 @@
       "cost": "GRATUITO",
       "capacity": 200,
       "films": [
-        {
-          "title": "ROMA CINEMA ARENA",
-          "director": "Festival Program",
-          "year": 2026,
-          "country": "Italy",
-          "date": "2026-07-08",
-          "time": "21:15"
-        },
-        {
-          "title": "Omaggio a Ettore Scola",
-          "director": "Ettore Scola",
-          "year": 1979,
-          "country": "Italy",
-          "date": "2026-07-14",
-          "time": "21:15"
-        },
-        {
-          "title": "Tom Hanks 70",
-          "director": "Various",
-          "year": 2024,
-          "country": "USA",
-          "date": "2026-07-15",
-          "time": "21:15"
-        }
+        {"title": "ROMA CINEMA ARENA", "director": "Festival Program", "year": 2026, "date": "2026-07-08", "time": "21:15"},
+        {"title": "Omaggio a Ettore Scola", "director": "Ettore Scola", "year": 1979, "date": "2026-07-14", "time": "21:15"},
+        {"title": "Tom Hanks 70", "director": "Various", "year": 2024, "date": "2026-07-15", "time": "21:15"}
       ]
     },
     {
@@ -489,14 +189,7 @@
       "cost": "GRATUITO",
       "capacity": 180,
       "films": [
-        {
-          "title": "Omaggio ad Alida Valli",
-          "director": "Various",
-          "year": 2024,
-          "country": "Italy",
-          "date": "2026-07-15",
-          "time": "21:15"
-        }
+        {"title": "Omaggio ad Alida Valli", "director": "Various", "year": 2024, "date": "2026-07-15", "time": "21:15"}
       ]
     },
     {
@@ -508,14 +201,7 @@
       "cost": "GRATUITO",
       "capacity": 200,
       "films": [
-        {
-          "title": "Festival Cinema 2026",
-          "director": "Various",
-          "year": 2026,
-          "country": "Italy",
-          "date": "2026-07-22",
-          "time": "21:15"
-        }
+        {"title": "Festival Cinema 2026", "director": "Various", "year": 2026, "date": "2026-07-22", "time": "21:15"}
       ]
     }
   ]
