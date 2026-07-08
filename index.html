@@ -70,6 +70,75 @@
             color: #333;
         }
         
+        .search-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .search-title {
+            font-size: 14px;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .search-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .search-controls input {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .search-controls input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+        }
+        
+        .btn-search {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+        
+        .btn-search:hover {
+            background: #764ba2;
+        }
+        
+        .btn-reset {
+            background: #999;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+        
+        .btn-reset:hover {
+            background: #666;
+        }
+        
         .btn-refresh {
             background: #667eea;
             color: white;
@@ -83,6 +152,16 @@
         
         .btn-refresh:hover {
             background: #764ba2;
+        }
+        
+        .filter-info {
+            background: #e3f2fd;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            color: #1565c0;
+            font-size: 14px;
         }
         
         .arenas-grid {
@@ -162,7 +241,7 @@
         .film-item {
             font-size: 13px;
             color: #555;
-            padding: 5px 0;
+            padding: 8px 0;
             border-bottom: 1px solid #f0f0f0;
         }
         
@@ -180,12 +259,34 @@
             font-size: 12px;
         }
         
+        .film-date {
+            color: #667eea;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+        
+        .film-time {
+            color: #888;
+            font-size: 12px;
+        }
+        
         .error {
             background: #fee;
             border: 1px solid #fcc;
             color: #c33;
             padding: 20px;
             border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .no-results {
+            background: #f5f5f5;
+            border: 2px dashed #999;
+            color: #666;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
             margin: 20px 0;
         }
         
@@ -233,10 +334,22 @@
             <button class="btn-refresh" onclick="location.reload()">🔄 Aggiorna</button>
         </header>
         
+        <div class="search-section">
+            <div class="search-title">🔍 Cerca film per data</div>
+            <div class="search-controls">
+                <input type="date" id="dateFilter" placeholder="Seleziona una data">
+                <button class="btn-search" onclick="filterByDate()">🔍 Cerca</button>
+                <button class="btn-reset" onclick="resetFilter()">✕ Annulla filtro</button>
+            </div>
+        </div>
+        
+        <div id="filterInfo"></div>
         <div id="content"></div>
     </div>
 
     <script>
+        let allData = null;
+        
         async function loadData() {
             try {
                 const response = await fetch('https://raw.githubusercontent.com/123CarloniK/roma-cinema-2026/main/data/cinema-schedule.json');
@@ -254,6 +367,7 @@
                     throw new Error('Arenas non è un array');
                 }
                 
+                allData = { metadata, arenas };
                 displayData(metadata, arenas);
                 
             } catch (error) {
@@ -271,6 +385,60 @@
             }
         }
         
+        function filterByDate() {
+            const dateInput = document.getElementById('dateFilter').value;
+            
+            if (!dateInput) {
+                alert('Seleziona una data!');
+                return;
+            }
+            
+            // Converti la data in formato YYYY-MM-DD
+            const selectedDate = dateInput;
+            
+            // Filtra le arene e i film
+            let filteredArenas = [];
+            let totalFilmsOnDate = 0;
+            
+            allData.arenas.forEach(arena => {
+                const filmsOnDate = arena.films.filter(film => film.date === selectedDate);
+                
+                if (filmsOnDate.length > 0) {
+                    filteredArenas.push({
+                        ...arena,
+                        films: filmsOnDate
+                    });
+                    totalFilmsOnDate += filmsOnDate.length;
+                }
+            });
+            
+            if (filteredArenas.length === 0) {
+                document.getElementById('content').innerHTML = `
+                    <div class="no-results">
+                        🎬 Nessun film trovato per la data: <strong>${selectedDate}</strong>
+                    </div>
+                `;
+                document.getElementById('filterInfo').innerHTML = `
+                    <div class="filter-info">
+                        🔍 Ricerca per data: <strong>${selectedDate}</strong> - Nessun risultato
+                    </div>
+                `;
+            } else {
+                document.getElementById('filterInfo').innerHTML = `
+                    <div class="filter-info">
+                        🔍 Ricerca per data: <strong>${selectedDate}</strong> - Trovati <strong>${totalFilmsOnDate}</strong> film in <strong>${filteredArenas.length}</strong> arene
+                    </div>
+                `;
+                displayFilteredData(filteredArenas);
+            }
+        }
+        
+        function resetFilter() {
+            document.getElementById('dateFilter').value = '';
+            document.getElementById('filterInfo').innerHTML = '';
+            displayData(allData.metadata, allData.arenas);
+        }
+        
         function displayData(metadata, arenas) {
             document.getElementById('status').textContent = '✅ OK';
             
@@ -282,6 +450,14 @@
             document.getElementById('arenaCount').textContent = metadata.totalArenas;
             document.getElementById('filmCount').textContent = metadata.totalFilms;
             
+            buildArenaCards(arenas);
+        }
+        
+        function displayFilteredData(arenas) {
+            buildArenaCards(arenas);
+        }
+        
+        function buildArenaCards(arenas) {
             let html = '<div class="arenas-grid">';
             
             arenas.forEach(arena => {
@@ -290,16 +466,14 @@
                 
                 let filmsHtml = '';
                 if (arena.films && arena.films.length > 0) {
-                    filmsHtml = arena.films.slice(0, 3).map(film => `
+                    filmsHtml = arena.films.map(film => `
                         <div class="film-item">
                             <div class="film-title">🎞️ ${film.title}</div>
                             <div class="film-director">${film.director || ''} (${film.year || ''})</div>
+                            <div class="film-date">📅 ${film.date}</div>
+                            <div class="film-time">🕐 ${film.time || 'Orario non specificato'}</div>
                         </div>
                     `).join('');
-                    
-                    if (filmCount > 3) {
-                        filmsHtml += `<div class="film-item" style="color: #667eea; font-weight: bold;">+ ${filmCount - 3} altri film</div>`;
-                    }
                 }
                 
                 html += `
@@ -322,7 +496,7 @@
                         
                         ${arena.films && arena.films.length > 0 ? `
                             <div class="arena-films">
-                                <div class="films-title">🎬 Film programmati (${filmCount})</div>
+                                <div class="films-title">🎬 Film in programma (${filmCount})</div>
                                 ${filmsHtml}
                             </div>
                         ` : ''}
