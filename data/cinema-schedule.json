@@ -1,92 +1,522 @@
-[
-  {
-    "id": 1,
-    "name": "Il Cinema in Piazza - Fondazione Piccolo America",
-    "locations": [
-      "Piazza San Cosimato (Trastevere)"
-    ],
-    "cost": "GRATUITO",
-    "website": "piccoloamerica.org",
-    "email": "info@piccoloamerica.org",
-    "phone": "+39 06 5811 3622",
-    "organizer": "Fondazione Piccolo America",
-    "startDate": "2026-05-28",
-    "endDate": "2026-07-12",
-    "affidability_score": 98,
-    "verified_date": "2026-07-08",
-    "sources": [
-      "piccoloamerica.org"
-    ],
-    "filmSchedule": {
-      "2026-07-08": [
-        {
-          "time": "21:15",
-          "title": "La dolce vita",
-          "director": "Federico Fellini",
-          "genre": "Dramma",
-          "year": 1960
-        }
-      ]
-    }
+{
+  "metadata": {
+    "version": "2.0",
+    "lastUpdated": "2026-07-08T08:17:11.581Z",
+    "totalArenas": 13,
+    "totalFilms": 139,
+    "source": "Automated scraper"
   },
-  {
-    "id": 2,
-    "name": "Teatro Ettore Scola - Casa del Cinema",
-    "locations": [
-      "Villa Borghese (Parco)"
-    ],
-    "cost": "GRATUITO",
-    "website": "casadelcinema.it",
-    "email": "logo@2x-new-300x100.png",
-    "phone": "04974363",
-    "organizer": "Fondazione Cinema per Roma",
-    "startDate": "2026-06-01",
-    "endDate": "2026-09-06",
-    "affidability_score": 97,
-    "verified_date": "2026-07-08",
-    "sources": [
-      "casadelcinema.it"
-    ],
-    "filmSchedule": {
-      "2026-07-08": [
+  "arenas": {
+    "arena_1_san_cosimato": {
+      "name": "Il Cinema in Piazza - Piazza San Cosimato",
+      "films": [],
+      "count": 0,
+      "status": "? OK"
+    },
+    "arena_1_cervelletta": {
+      "name": "Il Cinema in Piazza - Parco Cervelletta",
+      "status": "? ERRORE",
+      "error": "Exception: DNS error: https://piccoloamerica.org"
+    },
+    "arena_1_monte_ciocci": {
+      "name": "Il Cinema in Piazza - Monte Ciocci",
+      "status": "? ERRORE",
+      "error": "Exception: DNS error: https://piccoloamerica.org"
+    },
+    "arena_2_casa_cinema": {
+      "name": "Teatro Ettore Scola - Casa del Cinema",
+      "films": [
         {
-          "time": "21:30",
-          "title": "Un'ottima annata",
-          "director": "Ridley Scott",
-          "genre": "Commedia",
-          "year": 1992
-        }
-      ]
-    }
-  },
-  {
-    "id": 3,
-    "name": "Roma Cinema Arena - Parco Acquedotti",
-    "locations": [
-      "Parco degli Acquedotti"
-    ],
-    "cost": "GRATUITO",
-    "website": "romacinemaafest.it",
-    "email": "info@romacinemaafest.it",
-    "phone": "+39 06 7005 4830",
-    "organizer": "Fondazione Cinema per Roma",
-    "startDate": "2026-07-01",
-    "endDate": "2026-07-22",
-    "affidability_score": 95,
-    "verified_date": "2026-07-08",
-    "sources": [
-      "romacinemaafest.it"
-    ],
-    "filmSchedule": {
-      "2026-07-08": [
+          "title": "Articoli recenti"
+        },
         {
-          "time": "21:00",
-          "title": "Cittadino Kane",
-          "director": "Orson Welles",
-          "genre": "Dramma",
-          "year": 1941
+          "title": "Commenti recenti"
         }
-      ]
+      ],
+      "count": 2,
+      "status": "? OK"
+    },
+    "arena_3_roma_cinema": {
+      "name": "Roma Cinema Arena - Parco Acquedotti",
+      "films": [
+        {
+          "title": "Casa del Cinema"
+        },
+        {
+          "title": "ACCESSIBILIT?"
+        },
+        {
+          "title": "ACCEDI"
+        },
+        {
+          "title": "Festa del cinema"
+        },
+        {
+          "title": "PRESENTAZIONE"
+        },
+        {
+          "title": "DOVE SIAMO"
+        },
+        {
+          "title": "COME ARRIVARE"
+        },
+        {
+          "title": "PROGRAMMA"
+        },
+        {
+          "title": "Festa del Cinema di Roma"
+        },
+        {
+          "title": "Roma city of film"
+        },
+        {
+          "title": "Rome City of Film"
+        },
+        {
+          "title": "Festa365"
+        },
+        {
+          "title": "Fondazione Cinema per Roma"
+        },
+        {
+          "title": "Attivit?"
+        },
+        {
+          "title": "Newsletter"
+        },
+        {
+          "title": "Iscriviti alla newsletter"
+        }
+      ],
+      "count": 16,
+      "status": "? OK"
+    },
+    "arena_4_piazza_vittorio": {
+      "name": "Notti di Cinema a Piazza Vittorio",
+      "films": [
+        {
+          "title": "L?ESTATE 2026 COMINCIA QUI"
+        },
+        {
+          "title": "EVENTI E INCONTRI"
+        },
+        {
+          "title": "RASSEGNE"
+        },
+        {
+          "title": "I GRANDI FESTIVAL"
+        },
+        {
+          "title": "Iscriviti subito alla newsletter"
+        },
+        {
+          "title": "ANEC LAZIO"
+        },
+        {
+          "title": "AGIS LAZIO"
+        },
+        {
+          "title": "PARTNER"
+        },
+        {
+          "title": "CONTATTI"
+        },
+        {
+          "title": "HAI UNA DOMANDA? SCRIVI QUI"
+        }
+      ],
+      "count": 10,
+      "status": "? OK"
+    },
+    "arena_5_senza_confini": {
+      "name": "Senza Confini - Cinema al Corto Circuito",
+      "films": [],
+      "count": 0,
+      "status": "? OK"
+    },
+    "arena_6_cortili": {
+      "name": "Cortili di Cinema",
+      "films": [],
+      "count": 0,
+      "status": "? OK"
+    },
+    "arena_7_fonte_meravigliosa": {
+      "name": "Fonte Meravigliosa - Lanterne Magiche",
+      "films": [],
+      "count": 0,
+      "status": "? OK"
+    },
+    "arena_8_casilino": {
+      "name": "Casilino Sky Park - Cinema sul Tetto",
+      "films": [],
+      "count": 0,
+      "status": "? OK"
+    },
+    "arena_9_alle_mura": {
+      "name": "Cinema alle Mura",
+      "films": [],
+      "count": 0,
+      "status": "? OK"
+    },
+    "arena_10_effetto_notte": {
+      "name": "Effetto Notte - Arena Archeologica",
+      "films": [],
+      "count": 0,
+      "status": "? OK"
+    },
+    "arena_11_corviale": {
+      "name": "Vivi il Cinema - Corviale",
+      "films": [
+        {
+          "title": "Casa del Cinema"
+        },
+        {
+          "title": "ACCESSIBILIT?"
+        },
+        {
+          "title": "ACCEDI"
+        },
+        {
+          "title": "FESTA 365"
+        },
+        {
+          "title": "News"
+        },
+        {
+          "title": "Partecipa"
+        },
+        {
+          "title": "Eventi"
+        },
+        {
+          "title": "ROMA CINEMA ARENA"
+        },
+        {
+          "title": "Vivi il Cinema!"
+        },
+        {
+          "title": "1? - 22 luglio"
+        },
+        {
+          "title": "ARENA CORVIALE"
+        },
+        {
+          "title": "8 - 21 luglio"
+        },
+        {
+          "title": "ARENA CASA DEL CINEMA"
+        },
+        {
+          "title": "Ciao Marjane?"
+        },
+        {
+          "title": "11 luglio"
+        },
+        {
+          "title": "Le vie dell?acqua"
+        },
+        {
+          "title": "12 luglio - 8 agosto"
+        },
+        {
+          "title": "Omaggio a Ettore Scola"
+        },
+        {
+          "title": "14 -31 luglio"
+        },
+        {
+          "title": "Tom Hanks 70"
+        },
+        {
+          "title": "15 luglio - 29 agosto"
+        },
+        {
+          "title": "Omaggio ad Alida Valli"
+        },
+        {
+          "title": "20 luglio - 4 agosto"
+        },
+        {
+          "title": "Anniversari"
+        },
+        {
+          "title": "24 luglio - 5 settembre"
+        },
+        {
+          "title": "Multimedia"
+        },
+        {
+          "title": "Partner"
+        },
+        {
+          "title": "Promosso da"
+        },
+        {
+          "title": "In collaborazione con"
+        },
+        {
+          "title": "Festa del Cinema di Roma"
+        },
+        {
+          "title": "Roma city of film"
+        },
+        {
+          "title": "Rome City of Film"
+        },
+        {
+          "title": "Festa365"
+        },
+        {
+          "title": "Fondazione Cinema per Roma"
+        },
+        {
+          "title": "Attivit?"
+        },
+        {
+          "title": "Newsletter"
+        },
+        {
+          "title": "Iscriviti alla newsletter"
+        }
+      ],
+      "count": 37,
+      "status": "? OK"
+    },
+    "arena_12_santa_maria": {
+      "name": "Vivi il Cinema - Santa Maria della Piet?",
+      "films": [
+        {
+          "title": "Casa del Cinema"
+        },
+        {
+          "title": "ACCESSIBILIT?"
+        },
+        {
+          "title": "ACCEDI"
+        },
+        {
+          "title": "FESTA 365"
+        },
+        {
+          "title": "News"
+        },
+        {
+          "title": "Partecipa"
+        },
+        {
+          "title": "Eventi"
+        },
+        {
+          "title": "ROMA CINEMA ARENA"
+        },
+        {
+          "title": "Vivi il Cinema!"
+        },
+        {
+          "title": "1? - 22 luglio"
+        },
+        {
+          "title": "ARENA CORVIALE"
+        },
+        {
+          "title": "8 - 21 luglio"
+        },
+        {
+          "title": "ARENA CASA DEL CINEMA"
+        },
+        {
+          "title": "Ciao Marjane?"
+        },
+        {
+          "title": "11 luglio"
+        },
+        {
+          "title": "Le vie dell?acqua"
+        },
+        {
+          "title": "12 luglio - 8 agosto"
+        },
+        {
+          "title": "Omaggio a Ettore Scola"
+        },
+        {
+          "title": "14 -31 luglio"
+        },
+        {
+          "title": "Tom Hanks 70"
+        },
+        {
+          "title": "15 luglio - 29 agosto"
+        },
+        {
+          "title": "Omaggio ad Alida Valli"
+        },
+        {
+          "title": "20 luglio - 4 agosto"
+        },
+        {
+          "title": "Anniversari"
+        },
+        {
+          "title": "24 luglio - 5 settembre"
+        },
+        {
+          "title": "Multimedia"
+        },
+        {
+          "title": "Partner"
+        },
+        {
+          "title": "Promosso da"
+        },
+        {
+          "title": "In collaborazione con"
+        },
+        {
+          "title": "Festa del Cinema di Roma"
+        },
+        {
+          "title": "Roma city of film"
+        },
+        {
+          "title": "Rome City of Film"
+        },
+        {
+          "title": "Festa365"
+        },
+        {
+          "title": "Fondazione Cinema per Roma"
+        },
+        {
+          "title": "Attivit?"
+        },
+        {
+          "title": "Newsletter"
+        },
+        {
+          "title": "Iscriviti alla newsletter"
+        }
+      ],
+      "count": 37,
+      "status": "? OK"
+    },
+    "arena_13_tor_marancia": {
+      "name": "Vivi il Cinema - Tor Marancia",
+      "films": [
+        {
+          "title": "Casa del Cinema"
+        },
+        {
+          "title": "ACCESSIBILIT?"
+        },
+        {
+          "title": "ACCEDI"
+        },
+        {
+          "title": "FESTA 365"
+        },
+        {
+          "title": "News"
+        },
+        {
+          "title": "Partecipa"
+        },
+        {
+          "title": "Eventi"
+        },
+        {
+          "title": "ROMA CINEMA ARENA"
+        },
+        {
+          "title": "Vivi il Cinema!"
+        },
+        {
+          "title": "1? - 22 luglio"
+        },
+        {
+          "title": "ARENA CORVIALE"
+        },
+        {
+          "title": "8 - 21 luglio"
+        },
+        {
+          "title": "ARENA CASA DEL CINEMA"
+        },
+        {
+          "title": "Ciao Marjane?"
+        },
+        {
+          "title": "11 luglio"
+        },
+        {
+          "title": "Le vie dell?acqua"
+        },
+        {
+          "title": "12 luglio - 8 agosto"
+        },
+        {
+          "title": "Omaggio a Ettore Scola"
+        },
+        {
+          "title": "14 -31 luglio"
+        },
+        {
+          "title": "Tom Hanks 70"
+        },
+        {
+          "title": "15 luglio - 29 agosto"
+        },
+        {
+          "title": "Omaggio ad Alida Valli"
+        },
+        {
+          "title": "20 luglio - 4 agosto"
+        },
+        {
+          "title": "Anniversari"
+        },
+        {
+          "title": "24 luglio - 5 settembre"
+        },
+        {
+          "title": "Multimedia"
+        },
+        {
+          "title": "Partner"
+        },
+        {
+          "title": "Promosso da"
+        },
+        {
+          "title": "In collaborazione con"
+        },
+        {
+          "title": "Festa del Cinema di Roma"
+        },
+        {
+          "title": "Roma city of film"
+        },
+        {
+          "title": "Rome City of Film"
+        },
+        {
+          "title": "Festa365"
+        },
+        {
+          "title": "Fondazione Cinema per Roma"
+        },
+        {
+          "title": "Attivit?"
+        },
+        {
+          "title": "Newsletter"
+        },
+        {
+          "title": "Iscriviti alla newsletter"
+        }
+      ],
+      "count": 37,
+      "status": "? OK"
     }
   }
-]
+}
