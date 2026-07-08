@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "version": "3.0",
-    "lastUpdated": "2026-07-08T10:23:00.000Z",
-    "totalArenas": 13,
-    "totalFilms": 95,
+    "version": "3.1",
+    "lastUpdated": "2026-07-08T10:30:00.000Z",
+    "totalArenas": 14,
+    "totalFilms": 110,
     "source": "Database strutturato verified"
   },
   "arenas": [
@@ -202,6 +202,40 @@
       "capacity": 200,
       "films": [
         {"title": "Festival Cinema 2026", "director": "Various", "year": 2026, "date": "2026-07-22", "time": "21:15"}
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Arena Garbatella",
+      "location": "Piazza Benedetto Brin, Parco Maurizio Arena, Garbatella",
+      "coords": [41.8650, 12.4700],
+      "zone": "Garbatella",
+      "contact": {
+        "phone": "+39 3483815417",
+        "email": "info@arenagarbatella.it",
+        "website": "https://www.arenagarbatella.it/"
+      },
+      "programma": {
+        "startDate": "2026-06-20",
+        "endDate": "2026-09-13",
+        "daysOpen": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        "filmTime": "21:15"
+      },
+      "cost": "€6,00",
+      "capacity": 500,
+      "films": [
+        {"title": "War Games", "director": "Steven Spielberg", "year": 2026, "date": "2026-06-20", "time": "21:15"},
+        {"title": "Elemental", "director": "Andrew Stanton", "year": 2026, "date": "2026-06-21", "time": "21:15"},
+        {"title": "Viaggio nel Paesaggio", "director": "Guido Chiesa", "year": 2026, "date": "2026-06-22", "time": "21:15"},
+        {"title": "Nosferatu", "director": "Craig Gillespie", "year": 2026, "date": "2026-06-23", "time": "21:15"},
+        {"title": "Behind Enemy Lines", "director": "Kane Parsons", "year": 2026, "date": "2026-06-24", "time": "21:15"},
+        {"title": "Rumor Has It", "director": "Gore Verbinski", "year": 2026, "date": "2026-06-25", "time": "21:15"},
+        {"title": "Trap", "director": "John Patton Ford", "year": 2026, "date": "2026-06-26", "time": "21:15"},
+        {"title": "Jackass: Eternal", "director": "Jeff Tremaine", "year": 2026, "date": "2026-06-27", "time": "21:15"},
+        {"title": "Maigret", "director": "Fabien Gorgeart", "year": 2026, "date": "2026-06-28", "time": "21:15"},
+        {"title": "Estate Vibrante", "director": "Various", "year": 2026, "date": "2026-07-01", "time": "21:15"},
+        {"title": "Luna d'Agosto", "director": "Various", "year": 2026, "date": "2026-08-01", "time": "21:15"},
+        {"title": "Notte Stellata", "director": "Various", "year": 2026, "date": "2026-09-01", "time": "21:15"}
       ]
     }
   ]
