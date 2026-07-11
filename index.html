@@ -348,28 +348,77 @@
     </div>
 
     <script>
+        // Script aggiornato per gestire entrambi i formati di JSON:
+        // - { metadata, arenas: [...] }
+        // - [ { ... }, { ... } ] (array di arene con "filmSchedule")
+
         let allData = null;
-        
+
         async function loadData() {
             try {
                 const response = await fetch('https://raw.githubusercontent.com/123CarloniK/roma-cinema-2026/main/data/cinema-schedule.json');
-                
+
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
-                
+
                 const data = await response.json();
-                
-                const metadata = data.metadata;
-                const arenas = data.arenas;
-                
-                if (!Array.isArray(arenas)) {
-                    throw new Error('Arenas non è un array');
+
+                let metadata = {};
+                let arenas = [];
+
+                // Se il JSON è già un oggetto con metadata + arenas
+                if (data && data.metadata && Array.isArray(data.arenas)) {
+                    metadata = data.metadata;
+                    arenas = data.arenas;
+                } else if (Array.isArray(data)) {
+                    // Se il JSON è un array di "arenas" (formato attuale nel repo), normalizziamo
+                    arenas = data.map(a => {
+                        // Converti filmSchedule { "2026-07-08": [ {...}, ... ] } => films: [{... , date: "2026-07-08"}]
+                        const films = [];
+                        if (a.filmSchedule && typeof a.filmSchedule === 'object') {
+                            Object.keys(a.filmSchedule).forEach(date => {
+                                const list = a.filmSchedule[date];
+                                if (Array.isArray(list)) {
+                                    list.forEach(f => {
+                                        films.push({ ...f, date });
+                                    });
+                                }
+                            });
+                        }
+
+                        // Normalizza campi (location primo elemento di locations, sito completo se necessario)
+                        const location = Array.isArray(a.locations) && a.locations.length > 0 ? a.locations[0] : (a.location || '');
+                        let website = a.website || (a.contact && a.contact.website) || '';
+                        if (website && !website.startsWith('http')) {
+                            website = 'https://' + website;
+                        }
+
+                        return {
+                            // manteniamo i campi usati dall'UI
+                            name: a.name || a.title || '',
+                            location,
+                            capacity: a.capacity || a.capienza || '',
+                            cost: a.cost || '',
+                            films,
+                            contact: { website },
+                            // manteniamo i dati originali nel caso servano
+                            __raw: a
+                        };
+                    });
+
+                    metadata = {
+                        lastUpdated: new Date().toISOString(),
+                        totalArenas: arenas.length,
+                        totalFilms: arenas.reduce((sum, ar) => sum + (ar.films ? ar.films.length : 0), 0)
+                    };
+                } else {
+                    throw new Error('Formato dati non riconosciuto');
                 }
-                
+
                 allData = { metadata, arenas };
                 displayData(metadata, arenas);
-                
+
             } catch (error) {
                 console.error('Errore:', error);
                 document.getElementById('content').innerHTML = `
@@ -384,25 +433,23 @@
                 document.getElementById('status').textContent = '❌ ERRORE';
             }
         }
-        
+
         function filterByDate() {
             const dateInput = document.getElementById('dateFilter').value;
-            
+
             if (!dateInput) {
                 alert('Seleziona una data!');
                 return;
             }
-            
-            // Converti la data in formato YYYY-MM-DD
+
             const selectedDate = dateInput;
-            
-            // Filtra le arene e i film
+
             let filteredArenas = [];
             let totalFilmsOnDate = 0;
-            
+
             allData.arenas.forEach(arena => {
-                const filmsOnDate = arena.films.filter(film => film.date === selectedDate);
-                
+                const filmsOnDate = (arena.films || []).filter(film => film.date === selectedDate);
+
                 if (filmsOnDate.length > 0) {
                     filteredArenas.push({
                         ...arena,
@@ -411,7 +458,7 @@
                     totalFilmsOnDate += filmsOnDate.length;
                 }
             });
-            
+
             if (filteredArenas.length === 0) {
                 document.getElementById('content').innerHTML = `
                     <div class="no-results">
@@ -432,38 +479,38 @@
                 displayFilteredData(filteredArenas);
             }
         }
-        
+
         function resetFilter() {
             document.getElementById('dateFilter').value = '';
             document.getElementById('filterInfo').innerHTML = '';
-            displayData(allData.metadata, allData.arenas);
+            if (allData) displayData(allData.metadata, allData.arenas);
         }
-        
+
         function displayData(metadata, arenas) {
             document.getElementById('status').textContent = '✅ OK';
-            
+
             const lastUpdate = new Date(metadata.lastUpdated);
             document.getElementById('lastUpdate').textContent = 
                 lastUpdate.toLocaleDateString('it-IT') + ', ' + 
                 lastUpdate.toLocaleTimeString('it-IT');
-            
+
             document.getElementById('arenaCount').textContent = metadata.totalArenas;
             document.getElementById('filmCount').textContent = metadata.totalFilms;
-            
+
             buildArenaCards(arenas);
         }
-        
+
         function displayFilteredData(arenas) {
             buildArenaCards(arenas);
         }
-        
+
         function buildArenaCards(arenas) {
             let html = '<div class="arenas-grid">';
-            
+
             arenas.forEach(arena => {
                 const costClass = arena.cost === 'GRATUITO' ? '' : 'pagamento';
                 const filmCount = arena.films ? arena.films.length : 0;
-                
+
                 let filmsHtml = '';
                 if (arena.films && arena.films.length > 0) {
                     filmsHtml = arena.films.map(film => `
@@ -475,7 +522,7 @@
                         </div>
                     `).join('');
                 }
-                
+
                 html += `
                     <div class="arena-card">
                         <div class="arena-name">${arena.name}</div>
@@ -511,11 +558,11 @@
                     </div>
                 `;
             });
-            
+
             html += '</div>';
             document.getElementById('content').innerHTML = html;
         }
-        
+
         window.addEventListener('load', loadData);
     </script>
 </body>
